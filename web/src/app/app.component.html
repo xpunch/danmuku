@@ -1,0 +1,32 @@
+<div id="danmuarea">
+  <div id="danmu">
+  </div>
+</div>
+<!--控制区-->
+<div class="ctr">
+  <button (click)="pause()">Pause</button>
+  <button (click)="resume() ">Resume</button>
+  Visible:<input type='checkbox' [(ngModel)]="visible" (change)="visibleChanged()">
+  Opacity:<input type="range" [(ngModel)]="opacity" (change)="opacityChanged()"><br>
+  <!--设置当前弹幕时间(秒)： <input type="text" id="set_time" max=20 />
+  <button type="button"  onclick="settime()">设置</button>-->
+  <br>
+  <select [(ngModel)]="comment.color">
+    <option value="white">White</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+    <option value="yellow">Yellow</option>
+  </select>
+  <select [(ngModel)]="comment.size">
+    <option value="1">Big</option>
+    <option value="0">Small</option>
+  </select>
+  <select [(ngModel)]="comment.position">
+    <option value="0">滚动</option>
+    <option value="1">Top</option>
+    <option value="2">Bottom</option>
+  </select>
+  <input type="textarea" [(ngModel)]="comment.text" max=300 />
+  <button type="button" (click)="send()">发送</button>
+</div>
