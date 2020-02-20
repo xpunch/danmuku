@@ -1,7 +1,7 @@
 # -------
 # Builder
 # -------
-FROM go:1.13.8
+FROM golang:1.13.8
 
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o danmuku .
