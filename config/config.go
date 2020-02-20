@@ -11,7 +11,7 @@ type Config struct {
 
 // NewConfig builds a new configuration with default values.
 func NewConfig() *Config {
-	return &Config{Address: ":3000"}
+	return &Config{Address: ":80"}
 }
 
 // Load parse config info from config file and env args
