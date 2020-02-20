@@ -1,7 +1,7 @@
 # -------
 # Builder
 # -------
-FROM golang:1.13.8
+FROM golang:1.13.8 AS builder
 
 WORKDIR /go/src/danmuku
 COPY . .
@@ -12,6 +12,6 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o danmuku .
 # ---------------
 FROM alpine:3.11.3
 
-COPY danmuku .
+COPY --from=builder danmuku .
 
 CMD ["/usr/local/bin/danmuku"]
