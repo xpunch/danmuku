@@ -12,6 +12,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o danmuku .
 # ---------------
 FROM alpine:3.11.3
 
+WORKDIR /usr/local/bin
 COPY --from=builder /go/src/app/danmuku .
 
 CMD ["/usr/local/bin/danmuku"]
